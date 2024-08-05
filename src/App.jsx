@@ -15,7 +15,7 @@ return(
      />
     
   ) : (
-    <ContactList setSelectedContactId={selectedContactId}/>
+    <ContactList setSelectedContactId={setSelectedContactId}/>
   )}
   </>
 );

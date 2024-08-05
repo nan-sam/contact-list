@@ -1,7 +1,9 @@
 import  {useEffect, useState} from "react";
 
 function SingleContact({ selectedContactId, setSelectedContactId }) {
-    const [contacts, setContact] = useState(null);
+    
+  const [contacts, setContact] = useState(null);
+
     useEffect(() => {
         async function fetchSingleContact() {
             try {
@@ -10,13 +12,14 @@ function SingleContact({ selectedContactId, setSelectedContactId }) {
              `https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`
               );
               const json = await res.json();
-              console.log(json)
+              console.log(json);
+              setContact(json);
             } catch (error) {
               console.error(error);
             }
           }
           fetchSingleContact();
-        }, [setSelectedContactId]);
+        }, [selectedContactId]);
   return (
   <div>
     <h1>Details for Contact</h1>
